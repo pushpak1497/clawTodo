@@ -10,7 +10,7 @@ import {
 const router = Router();
 router.use(verifyJWT);
 router.route("/").post(createTodo);
-router.route("/user/:userId").get(getUserTodos);
+router.route("/").get(getUserTodos);
 router.route("/:todoId").patch(updateTodo);
 router.route("/:todoId").delete(deleteTodo);
 

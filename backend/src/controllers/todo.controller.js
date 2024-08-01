@@ -21,10 +21,8 @@ const createTodo = asyncHandler(async (req, res) => {
     .json(new ApiResponse(200, todo, "todo created successfully"));
 });
 const getUserTodos = asyncHandler(async (req, res) => {
-  const { userId } = req.params;
-  if (!userId) {
-    throw new ApiError(401, "Inavlid User");
-  }
+  console.log(req.user._id);
+
   const todos = await Todo.aggregate([
     {
       $match: {
