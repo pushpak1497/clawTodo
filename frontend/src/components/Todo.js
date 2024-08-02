@@ -1,6 +1,7 @@
 import React from "react";
 
 const Todo = ({ todo, onDelete, onUpdate }) => {
+  //console.log(todo);
   return (
     <div>
       <input

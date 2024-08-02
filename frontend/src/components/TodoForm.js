@@ -4,8 +4,12 @@ const TodoForm = ({ onAdd }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await onAdd(content);
-    setContent("");
+    try {
+      await onAdd(content);
+      setContent("");
+    } catch (error) {
+      console.error(error.response?.data || error.message);
+    }
   };
 
   return (

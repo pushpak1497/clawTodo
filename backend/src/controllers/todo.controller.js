@@ -36,11 +36,9 @@ const getUserTodos = asyncHandler(async (req, res) => {
 });
 
 const updateTodo = asyncHandler(async (req, res) => {
-  const { content, isCompleted } = req.body;
+  const { isCompleted } = req.body;
   const { todoId } = req.params;
-  if (!content) {
-    throw new ApiError(401, "Content is required");
-  }
+
   if (!todoId) {
     throw new ApiError(402, "todoId is invalid");
   }
@@ -55,7 +53,6 @@ const updateTodo = asyncHandler(async (req, res) => {
     todoId,
     {
       $set: {
-        content,
         isCompleted,
       },
     },
